@@ -1,0 +1,62 @@
+.card {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 5px;
+  border-radius: 10px;
+  min-width: 454px;
+  .collapsed {
+    &.collapsible-section {
+      display: none;
+    }
+  }
+}
+
+.tab-container {
+  width: 500px;
+  margin: 0 auto;
+  .tab-buttons {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    background-color: darkblue;
+    li {
+      cursor: pointer;
+      display: inline-block;
+      background-color: cornflowerblue;
+      padding: 5px;
+      color: #fff;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      &.selected {
+        background-color: #fff;
+        color: #000;
+      }
+    }
+  }
+  .tab-panel {
+    width: 100px;
+    height: 125px;
+    margin: 0 auto;
+    .logo {
+      width: 100%;
+      height: 100%;
+      &.superman {
+        background: url('../../assets/superman.jpg') no-repeat center center;
+        background-size: 80% 80%;      }
+      &.batman {
+        background: url('../../assets/batman.jpg') no-repeat center center;
+        background-size: 80% 80%;
+      }
+      &.flash {
+        background: url('../../assets/flash.png') no-repeat center center;
+        background-size: 80% 80%;
+      }
+    }
+  }
+}
+:host {
+  display: block;
+  height: 100%;
+}
+

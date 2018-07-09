@@ -1,0 +1,54 @@
+<div class="fluid-container">
+  <table class="courses-list card card-strong">
+    <tr class="course-summary" *ngFor="let course of courses" (click)="showCoursePlaylist(course)">
+      <td>
+        <img class="lesson-logo"
+             src="https://material.angularjs.org/latest/img/icons/angular-logo.svg">
+      </td>
+      <td class="description">
+        {{course.description}}
+      </td>
+      <td>
+        <button (click)="openCourse(course, $event)">View</button>
+      </td>
+    </tr>
+  </table>
+  <div class="list">
+    <router-outlet name="playlist"></router-outlet>
+  </div>
+</div>
+<!--<nav class="menu-head" [ngClass]="{expand: expandMenu, closed: isClosed}">-->
+  <!--<div class="menu-img">-->
+    <!--<img src="assets/images/vistaLogo.png" alt="logo" (click)="toggleNav()">-->
+  <!--</div>-->
+  <!--<ul appNavLvlOne="levelOne" class="top-menu list-unstyled">-->
+    <!--<li><span href="">TOP CONFIGURATIONS</span></li>-->
+    <!--<li><span href="">SHARE LEVELS</span></li>-->
+    <!--<li><span href="">VOLUME LEVELS</span></li>-->
+    <!--<li><span href="">PCMA WIDTHS</span></li>-->
+    <!--<li class="dropdown">-->
+      <!--<span href="" class="dropdown-toggle" (click)="toggleNavItems('rbOpen')">RULES BUILDER <span class="caret"></span></span>-->
+      <!--<ul class="dropdown-menu" [ngClass]="{open: nav.rbOpen}">-->
+        <!--<li><span href="#">Action</span></li>-->
+        <!--<li><span href="#">Another action</span></li>-->
+        <!--<li><span href="#">Something else here</span></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+    <!--<li class="dropdown">-->
+      <!--<span href="" class="dropdown-toggle" (click)="toggleNavItems('diOpen')" [active]="true" >DEVELOPMENTAL ITEMS <span class="caret"></span></span>-->
+      <!--<ul class="dropdown-menu" [ngClass]="{open: nav.diOpen}">-->
+        <!--<li><span href="#">Action</span></li>-->
+        <!--<li><span href="#">Another action</span></li>-->
+        <!--<li><span href="#">Something else here</span></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+    <!--<li class="dropdown">-->
+      <!--<span href="" class="dropdown-toggle" (click)="toggleNavItems('cpOpen')">COMPETITIVE PRODUCT <span class="caret"></span></span>-->
+      <!--<ul class="dropdown-menu" [ngClass]="{open: nav.cpOpen}">-->
+        <!--<li><span href="#">Action</span></li>-->
+        <!--<li><span href="#">Another action</span></li>-->
+        <!--<li><span href="#">Something else here</span></li>-->
+      <!--</ul>-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</nav>-->

@@ -1,0 +1,15 @@
+<h1>My id is {{courseId}} {{courseDesc}}</h1>
+
+<input (keyup)="dirty = true" placeholder="Edit Description">
+
+<button [routerLink]="['/nav', previous()]">Previous</button>
+<button [routerLink]="['/nav', next()]">Next</button>
+<div class="fluid-container">
+  <ul class="list-group">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+</div>

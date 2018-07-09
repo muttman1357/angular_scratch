@@ -1,0 +1,18 @@
+<div class="dd-container">
+  <!--<div id="source-container"-->
+       <!--(drop)="dropped($event)"-->
+       <!--(dragenter)="dragEnter($event)"-->
+       <!--(dragleave)="dragleave($event)"-->
+       <!--(dragover)="dragOver($event)"-->
+       <!--[ngClass]="{'drag-backgrd': dragBackgrd}">-->
+    <!--<img id="home-snapshot" class="img-responsive" draggable="true" src="assets/batman.jpg"-->
+         <!--(dragstart)="dragStart($event)">-->
+  <!--</div>-->
+  <div id="target-container" class="glyphicon"
+       (drop)="dropped($event)"
+       (dragenter)="dragEnter($event)"
+       (dragover)="dragOver($event)"
+       (dragleave)="dragleave($event)"
+       [ngClass]="{'drag-backgrd': dragBackgrd}">
+  </div>
+</div>

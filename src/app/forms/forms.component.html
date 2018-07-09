@@ -1,0 +1,80 @@
+<div class="fluid-container">
+  <div class="col-sm-3">
+    <h3>Model Driven Forms</h3>
+    <form [formGroup]="myForm" autocomplete="off" novalidate>
+      <fieldset>
+        <legend>Summary</legend>
+        <div class="form-field">
+          <label>Title:</label>
+          <input formControlName="title">
+          <div class="field-error-message" *ngIf="myForm.controls['title'].errors?.required">Field is Mandatory</div>
+        </div>
+        <div class="form-field">
+          <label>Duration:</label>
+          <input [formControl]="duration">
+        </div>
+        <div class="form-field">
+          <label>Level:</label>
+          <!--<input type="radio" name="level" value="BEGINNER" [(ngModel)]="lesson.level">Beginner-->
+          <!--<input type="radio" name="level" value="ADVANCED" [(ngModel)]="lesson.level">Advanced-->
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Long Text Fields</legend>
+        <div class="form-field">
+          <label>Description:</label>
+          <textarea formControlName="description"></textarea>
+        </div>
+      </fieldset>
+      <p>
+        <button class="lesson-button" type="submit">Create Lesson</button>
+      </p>
+    </form>
+  </div>
+  <button (click)="notifyMe()">Notify me!</button>
+  <!--<div class="fluid-container">-->
+    <!--<div class="col-sm-3">-->
+      <!--<form #f="ngForm" autocomplete="off" novalidate>-->
+        <!--<fieldset ngModelGroup="summary" #summary="ngModelGroup">-->
+          <!--<legend [ngStyle]="summaryStatus(summary)">Summary</legend>-->
+          <!--<div class="form-field">-->
+            <!--<label>Title:</label>-->
+            <!--<input name="title" [(ngModel)]="lesson.title" minlength="10" maxLength="15" #title="ngModel" required>-->
+            <!--<div class="field-error-message" *ngIf="title.dirty && title?.errors?.required">Field is Mandatory</div>-->
+            <!--<div class="field-error-message" *ngIf="title.dirty && title?.errors?.minlength">min-->
+              <!--{{title?.errors?.minlength?.requiredLength}} chars-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--{{stringifyItem(title)}}-->
+          <!--<div class="form-field">-->
+            <!--<label>Duration:</label>-->
+            <!--<input name="duration" [(ngModel)]="lesson.duration" pattern="^\d{0,10}$">-->
+          <!--</div>-->
+          <!--<div class="form-field">-->
+            <!--<label>Level:</label>-->
+            <!--<input type="radio" name="level" value="BEGINNER" [(ngModel)]="lesson.level">Beginner-->
+            <!--<input type="radio" name="level" value="ADVANCED" [(ngModel)]="lesson.level">Advanced-->
+          <!--</div>-->
+        <!--</fieldset>-->
+        <!--<fieldset>-->
+          <!--<legend>Long Text Fields</legend>-->
+          <!--<div class="form-field">-->
+            <!--<label>Description:</label>-->
+            <!--<textarea name="description" cols="100" rows="5" [(ngModel)]="lesson.description" required></textarea>-->
+          <!--</div>-->
+        <!--</fieldset>-->
+        <!--<p>-->
+          <!--<button class="lesson-button" type="submit">Create Lesson</button>-->
+        <!--</p>-->
+      <!--</form>-->
+    <!--</div>-->
+
+  <!--<div class="debug">-->
+    <!--<h3>Form Value:</h3>-->
+    <!--{{f.valid |json}}-->
+  <!--</div>-->
+  <div class="debug">
+    <h3>Lesson Value:</h3>
+    {{ lesson | json }}
+  </div>
+</div>
