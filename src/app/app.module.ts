@@ -10,7 +10,6 @@ import {ShowOneDirective} from './directives/showOne';
 import {ShowOneContainerDirective} from './directives/showOneContainer';
 import { MainComponent } from './main/main.component';
 import { ContentChildrenComponent } from './content-children/content-children.component';
-import {AppRoutingModule} from './app.routing.module';
 import { NgContentComponent } from './ng-content/ng-content.component';
 import { NavComponent } from './nav/nav.component';
 import { NavLvlOneDirective } from './nav/directives/nav-lvl-one.directive';
@@ -27,6 +26,50 @@ import { LegacyComponent } from './legacy.component';
 import { FormsComponent } from './forms/forms.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DragndropComponent } from './dragndrop/dragndrop.component';
+import {Route, RouterModule, Routes} from '@angular/router';
+import {CoursesRouterConfig} from './routes/coursesRouterConfig';
+import { RatingInputComponent } from './rating-input/rating-input.component';
+
+const indexRoute: Route = {
+  path: '',
+  component: MainComponent
+};
+
+const fallbackRoute: Route = {
+  path: '**',
+  component: MainComponent
+};
+
+const routes: Routes = [
+  {path: 'main', component: MainComponent},
+  {path: 'contentChildren', component: ContentChildrenComponent},
+  {path: 'ngContent', component: NgContentComponent},
+  ...CoursesRouterConfig,
+  {path: 'pipes', component: PipePracticeComponent},
+  {
+    path: 'playlist',
+    component: PlaylistComponent,
+    outlet: 'playlist'
+  },
+  {
+    path: 'legacy',
+    component: LegacyComponent
+  },
+  {
+    path: 'forms',
+    component: FormsComponent
+  },
+  {
+    path: 'drag',
+    component: DragndropComponent
+  },
+  {
+    path: 'rating',
+    component: RatingInputComponent
+  },
+  indexRoute,
+  fallbackRoute
+];
 
 @NgModule({
   declarations: [
@@ -48,14 +91,16 @@ import { DragndropComponent } from './dragndrop/dragndrop.component';
     PlaylistComponent,
     LegacyComponent,
     FormsComponent,
-    DragndropComponent
+    DragndropComponent,
+    RatingInputComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    RouterModule.forRoot(routes, {useHash: true})
   ],
+  exports: [RouterModule],
   providers: [CanCourseDetailDeactivate, CourseDetailActivateGuard, NavService],
   bootstrap: [AppComponent]
 })
