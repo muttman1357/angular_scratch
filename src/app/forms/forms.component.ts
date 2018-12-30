@@ -14,7 +14,7 @@ import {validateDuration} from './validators/validateDuration';
 export class FormsComponent implements OnInit {
   lesson = new Lesson();
   myForm: FormGroup;
-  duration = new FormControl(10, [validateDuration])
+  duration = new FormControl(10, [validateDuration]);
   // duration = new FormControl(10, [
   //   Validators.required,
   //   Validators.pattern('[0-9]+')
@@ -33,12 +33,16 @@ export class FormsComponent implements OnInit {
       description: ['Description goes here', [
         Validators.required
       ]
+      ],
+      rating: ['', [
+        Validators.required
       ]
+      ],
     });
     console.log(this.myForm);
     this.myForm.valueChanges
       // .filter(() => this.myForm.valid)
-      .map(value => new Lesson(value.title, value.duration, value.description, StudentLevel.BEGINNER))
+      .map(value => new Lesson(value.title, value.duration, value.description, StudentLevel.BEGINNER, value.rating))
       .do(formValue => console.log("Form Value:", formValue))
       .subscribe(
         lesson => {

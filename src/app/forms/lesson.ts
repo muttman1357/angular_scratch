@@ -9,7 +9,8 @@ export class Lesson {
   constructor(public title: string = "",
               public duration: number = 0,
               public description: string = "",
-              private _level: StudentLevel = StudentLevel.BEGINNER) {
+              private _level: StudentLevel = StudentLevel.BEGINNER,
+              private rating: number = 0) {
 
   }
 
